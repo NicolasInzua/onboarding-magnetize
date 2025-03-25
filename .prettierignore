@@ -1,0 +1,10 @@
+node_modules
+dist
+package-lock.json
+package.json
+.vscode/*
+babel.config.json
+eslint.config.mjs
+webpack.config.js
+tsconfig.json
+.prettierrc.json

@@ -1,5 +1,6 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const DotEnv = require('dotenv-webpack')
 
 module.exports = {
   entry: './src/index.tsx',
@@ -28,8 +29,14 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.ts', '.tsx', '.js', '.jsx'],
+    fallback: {
+      process: require.resolve('process/browser'),
+    },
   },
-  plugins: [new HTMLWebpackPlugin({ template: './src/index.html' })],
+  plugins: [
+    new HTMLWebpackPlugin({ template: './src/index.html' }),
+    new DotEnv(),
+  ],
   devServer: {
     port: 3000,
     open: true,
